@@ -1,0 +1,13 @@
+.Rhistory
+.RData
+.Rproj.user/
+*.Rproj
+
+outputs/*
+!outputs/README.md
+
+data/*
+!data/README.md
+
+.DS_Store
+Thumbs.db
