@@ -1,0 +1,11 @@
+source("R/01_define_species_and_matrices.R")
+source("R/02_simulate_disturbance_regimes.R")
+source("R/03_project_population_trajectories.R")
+source("R/04_calculate_resilience_metrics.R")
+source("R/05_analyse_resilience_outputs.R")
+source("R/06_plot_resilience_outputs.R")
+
+output_dir <- file.path("outputs", "example_run")
+results <- run_resilience_simulation(n_per_group = 8, n_years = 35, seed = 42)
+write_resilience_outputs(results, output_dir)
+print_run_summary(results, output_dir)
