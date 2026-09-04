@@ -1,29 +1,28 @@
-# Ecological resilience modelling workflow
+# Stage-structured population resilience simulation in R
 
-This repository contains a reproducible R workflow for simulating stage-structured populations under additive and interacting disturbance regimes.
+This repository contains a small R simulation for exploring how stage-structured populations respond to repeated drought and land-use disturbance.
 
-The example is self-contained. It creates synthetic species and scenario inputs, projects population trajectories through time, calculates resilience metrics, and compares additive and interacting disturbance cases using paired scenarios.
+The example uses synthetic species and scenarios. It was built to practise and document population-projection and resilience calculations, not to represent an empirical demographic study.
 
-## Workflow
+## What the code does
 
-1. Define simulated species and stage-structured population matrices.
-2. Create drought and land-use disturbance scenarios.
-3. Project population trajectories against a no-disturbance reference.
-4. Calculate final abundance, proportional loss, resistance, and recovery metrics.
-5. Compare additive and interacting disturbance outcomes with paired scenario summaries.
-6. Export tables and figures for checking the model behaviour.
+The scripts:
 
-## Repository layout
+1. define simple stage-structured population matrices;
+2. generate drought and land-use disturbance scenarios;
+3. project population trajectories against an undisturbed reference;
+4. calculate resistance, recovery and abundance-loss measures;
+5. compare additive and interacting disturbance cases;
+6. write summary tables and figures for checking model behaviour.
 
-```text
-R/          R functions used by the workflow
-examples/   runnable example script
-docs/       short workflow notes
-data/       placeholder for user-supplied inputs
-outputs/    placeholder for generated results
-```
+## Structure
 
-## Run the example
+- `R/` — functions for species setup, disturbance scenarios, projections and resilience metrics
+- `examples/run_example_workflow.R` — self-contained example run
+- `docs/workflow_overview.md` — short method notes
+- `outputs/` — generated results when the example is run locally
+
+## Running the example
 
 From the repository root:
 
@@ -31,32 +30,11 @@ From the repository root:
 source("examples/run_example_workflow.R")
 ```
 
-The workflow uses base R only.
+The example uses base R.
 
-Generated tables and figures are written to:
+## Scope and limitations
 
-```text
-outputs/example_run/
-```
+All species traits and disturbance scenarios in this repository are simulated. The code is useful for testing stage-structured modelling logic and resilience metrics, but the outputs should not be interpreted as estimates for a real population or management recommendation.
 
-## Main outputs
-
-Tables:
-
-- `simulated_species_traits.csv`
-- `disturbance_scenarios.csv`
-- `resilience_metrics.csv`
-- `paired_interaction_effects.csv`
-- `interaction_effect_summary.csv`
-- `run_summary.csv`
-
-Figures:
-
-- `final_ratio_by_disturbance.png`
-- `interaction_penalty_final_ratio.png`
-- `interaction_penalty_average_loss.png`
-- `average_loss_by_life_history.png`
-- `example_relative_trajectories.png`
-- `baseline_lambda_by_life_history.png`
-
-Interaction penalties are zero when one disturbance axis is absent, because the interaction term only modifies outcomes when drought and land-use pressure occur together.
+**Author:** Ali Moayedi  
+University of St Andrews
